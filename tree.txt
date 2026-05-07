@@ -1,0 +1,14 @@
+.
+├── Justfile
+├── README.md
+├── pyproject.toml
+├── src
+│   ├── __init__.py
+│   └── default.py
+├── tests
+│   ├── __init__.py
+│   └── test_default.py
+├── tree.txt
+└── uv.lock
+
+3 directories, 9 files
