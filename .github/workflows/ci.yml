@@ -40,12 +40,13 @@ jobs:
         run: uv run mypy --ignore-missing-imports src tests
 
       - name: Run tests and generate reports
+        # --cov の値は自身のパッケージ名に書き換えてください
         run: |
           mkdir -p .ci_cache/.pytest_reports
           uv run pytest \
             --junitxml=.ci_cache/.pytest_reports/report.xml \
             --cov=template \
-            --cov-report=xml
+            --cov-report=xml:.ci_cache/.pytest_reports/coverage.xml
 
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v6
@@ -58,5 +59,6 @@ jobs:
         if: always()
         with:
           name: coverage-xml
-          path: coverage.xml
+          # pytestで指定した出力先と合わせる必要があります
+          path: .ci_cache/.pytest_reports/coverage.xml
           if-no-files-found: error
