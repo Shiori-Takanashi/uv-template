@@ -45,7 +45,7 @@ jobs:
           mkdir -p .ci_cache/.pytest_reports
           uv run pytest \
             --junitxml=.ci_cache/.pytest_reports/report.xml \
-            --cov=template \
+            --cov=uv_template \
             --cov-report=xml:.ci_cache/.pytest_reports/coverage.xml
 
       - name: Publish Test Report
