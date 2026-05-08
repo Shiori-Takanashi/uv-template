@@ -1,4 +1,4 @@
-from src.default import add
+from uv_template.funcs.add import add
 
 
 def test_add():
